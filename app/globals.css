@@ -15,7 +15,7 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--white);
   color: var(--black);
-  font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-weight: 300;
   overflow-x: hidden;
   cursor: crosshair;
@@ -94,21 +94,22 @@ body.no-scroll { overflow: hidden; }
   font-size:clamp(48px,9vw,116px);
   color:var(--white); text-decoration:none; letter-spacing:-0.02em; line-height:0.92;
   opacity:0; transform:translateX(-30px);
-  transition:opacity 0.4s, transform 0.4s, color 0.2s, -webkit-text-stroke 0.2s;
+  transition:opacity 0.4s, transform 0.4s ease, color 0.2s, -webkit-text-stroke 0.2s;
   -webkit-text-stroke:0px var(--white);
+  display:block;
 }
-#nav-overlay.open a:nth-child(1) { opacity:1; transform:none; transition-delay:0.15s; }
-#nav-overlay.open a:nth-child(2) { opacity:1; transform:none; transition-delay:0.22s; }
-#nav-overlay.open a:nth-child(3) { opacity:1; transform:none; transition-delay:0.29s; }
-#nav-overlay.open a:nth-child(4) { opacity:1; transform:none; transition-delay:0.36s; }
-#nav-overlay a:hover { color:transparent; -webkit-text-stroke:2px var(--white); transform:skew(-2deg) !important; }
+#nav-overlay.open a:nth-child(1) { opacity:1; transform:translateX(0); transition-delay:0.15s; }
+#nav-overlay.open a:nth-child(2) { opacity:1; transform:translateX(0); transition-delay:0.22s; }
+#nav-overlay.open a:nth-child(3) { opacity:1; transform:translateX(0); transition-delay:0.29s; }
+#nav-overlay.open a:nth-child(4) { opacity:1; transform:translateX(0); transition-delay:0.36s; }
+#nav-overlay a:hover { color:transparent; -webkit-text-stroke:2px var(--white); transform:translateX(8px) skew(-2deg); transition-delay:0s !important; }
 
 /* HERO */
 #hero { min-height:100vh; background:var(--white); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; padding:80px 24px 100px; }
-.hero-bg-text { position:absolute; pointer-events:none; font-family:var(--font-display); font-weight:900; font-size:clamp(100px,20vw,300px); color:var(--red); opacity:0.07; letter-spacing:-0.04em; line-height:1; top:50%; left:50%; transform:translate(-50%,-50%); white-space:nowrap; z-index:1; user-select:none; }
-@media(max-width:600px) { .hero-bg-text { display:none; } }
+.hero-bg-text { position:absolute; pointer-events:none; font-family:var(--font-display); font-weight:900; font-size:clamp(180px,30vw,520px); color:var(--red); opacity:0.06; letter-spacing:-0.04em; line-height:1; top:50%; left:50%; transform:translate(-50%,-50%); white-space:nowrap; z-index:1; user-select:none; }
+@media(max-width:600px) { .hero-bg-text { font-size:clamp(100px,28vw,200px); } }
 .hero-title { position:absolute; pointer-events:none; font-family:var(--font-display); font-weight:900; font-size:clamp(64px,14vw,200px); color:var(--red); letter-spacing:-0.04em; line-height:1; top:50%; left:50%; transform:translate(-50%,-50%); white-space:nowrap; z-index:2; user-select:none; }
-.hero-burger { position:relative; z-index:3; width:clamp(240px,42vw,640px); max-width:85vw; filter:drop-shadow(0 40px 80px rgba(227,26,30,0.22)); animation:float 4s ease-in-out infinite; will-change:transform; }
+.hero-burger { position:relative; z-index:10; width:clamp(240px,42vw,640px); max-width:85vw; filter:drop-shadow(0 40px 80px rgba(227,26,30,0.22)); will-change:transform; }
 .hero-sub { position:absolute; bottom:52px; left:50%; transform:translateX(-50%); font-size:9px; letter-spacing:0.35em; color:var(--red); z-index:4; animation:blink 1.6s infinite; white-space:nowrap; }
 .hero-cross { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:24px; height:24px; pointer-events:none; z-index:5; opacity:0.25; }
 .hero-cross::before,.hero-cross::after { content:''; position:absolute; background:var(--red); }
@@ -263,3 +264,12 @@ footer { background:var(--black); padding:60px 40px 40px; display:flex; flex-dir
   width:clamp(140px,18vw,200px) !important; 
   height:auto !important;
 }
+
+/* INSTAGRAM EMBED */
+.ig-embed-wrap { margin-top: 60px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.ig-embed-label { font-size: 9px; letter-spacing: 0.25em; color: rgba(0,0,0,0.3); text-align: center; }
+.ig-iframe { border: 1.5px solid #ebebeb; max-width: 100%; display: block; }
+@media(max-width: 480px) { .ig-iframe { width: 100%; height: 400px; } }
+
+/* CREW IMAGE - PNG transparent support */
+.about-img-wrap img.crew-img { mix-blend-mode: multiply; background: transparent; }

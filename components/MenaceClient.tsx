@@ -132,9 +132,11 @@ export default function MenaceClient() {
         const burger = document.getElementById('hero-burger');
         const bg     = document.getElementById('hero-bg');
         const title  = document.getElementById('hero-title');
-        if (burger) burger.style.transform = `translateY(${-y * 0.2}px)`;
+        // On desktop: burger scrolls up faster than text → flies over section below
+        const isMobile = window.innerWidth < 768;
+        if (burger) burger.style.transform = `translateY(${-y * (isMobile ? 0.15 : 0.45)}px)`;
         if (bg)     bg.style.transform     = `translate(-50%, calc(-50% + ${y * 0.07}px))`;
-        if (title)  title.style.transform  = `translate(-50%, calc(-50% + ${y * 0.04}px))`;
+        if (title)  title.style.transform  = `translate(-50%, calc(-50% + ${y * 0.12}px))`;
         ticking = false;
       });
       ticking = true;

@@ -60,7 +60,6 @@ export default function Home() {
       <section id="hero">
         <div className="hero-cross" />
         <div className="hero-bg-text" id="hero-bg">MENACE</div>
-        <div className="hero-title" id="hero-title">MENACE</div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           className="hero-burger"
@@ -127,7 +126,8 @@ export default function Home() {
         </div>
         <div className="about-img-wrap reveal-right">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/crew.jpg" alt="Dennis und Fabian – Gründer Menace Burger" loading="lazy" />
+          {/* crew.png mit transparentem Hintergrund – Original PNG einsetzen */}
+          <img src="/images/crew.jpg" alt="Dennis und Fabian – Gründer Menace Burger" loading="lazy" className="crew-img" />
         </div>
       </section>
 
@@ -151,6 +151,19 @@ export default function Home() {
           <a href="https://www.instagram.com/menaceburger/" target="_blank" rel="noopener noreferrer" className="btn-primary">
             @MENACEBURGER ↗
           </a>
+        </div>
+        <div className="ig-embed-wrap reveal">
+          <div className="ig-embed-label">[ LIVE FEED ]</div>
+          <iframe
+            src="https://www.instagram.com/menaceburger/embed"
+            width="400"
+            height="500"
+            frameBorder="0"
+            scrolling="no"
+            allowTransparency={true}
+            title="Menace Burger Instagram"
+            className="ig-iframe"
+          />
         </div>
       </section>
 
