@@ -134,8 +134,8 @@ export default function MenaceClient() {
         const title  = document.getElementById('hero-title');
         // On desktop: burger scrolls up faster than text → flies over section below
         const isMobile = window.innerWidth < 768;
-        if (burger) burger.style.transform = `translateY(${-y * (isMobile ? 0.15 : 0.45)}px)`;
-        if (bg)     bg.style.transform     = `translate(-50%, calc(-50% + ${y * 0.07}px))`;
+        if (burger) burger.style.transform = `translateY(${-y * (isMobile ? 0.1 : 0.35)}px)`;
+        if (bg)     bg.style.transform     = `translate(-50%, calc(-50% + ${y * 0.05}px))`;
         if (title)  title.style.transform  = `translate(-50%, calc(-50% + ${y * 0.12}px))`;
         ticking = false;
       });
