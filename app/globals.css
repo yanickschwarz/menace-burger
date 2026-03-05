@@ -226,3 +226,40 @@ footer { background:var(--black); padding:60px 40px 40px; display:flex; flex-dir
 .reveal-left  { opacity:0; transform:translateX(-40px); transition:opacity 0.75s ease, transform 0.75s ease; }
 .reveal-right { opacity:0; transform:translateX(40px);  transition:opacity 0.75s ease, transform 0.75s ease; }
 .reveal.visible, .reveal-left.visible, .reveal-right.visible { opacity:1; transform:none; }
+
+/* ── NEXT/IMAGE OVERRIDES ─────────────────────────────────── */
+/* Force all next/image elements to respect layout */
+.burger-card-img span, .burger-card-img > span { display:block !important; }
+.burger-card-img img { 
+  width:100% !important; height:100% !important; 
+  object-fit:cover !important; max-width:none !important;
+}
+.about-img-wrap img { 
+  width:100% !important; height:100% !important;
+  object-fit:cover !important; max-width:none !important;
+}
+.cctv-cell img { 
+  width:100% !important; height:100% !important;
+  object-fit:cover !important; max-width:none !important;
+}
+.location-imgs img { 
+  width:100% !important; height:100% !important;
+  object-fit:cover !important; max-width:none !important;
+}
+/* Hero burger - keep natural size but centered */
+.hero-burger { 
+  display:block !important;
+  max-width:min(640px, 85vw) !important;
+  width:clamp(240px,42vw,640px) !important;
+  height:auto !important;
+}
+/* Footer logo */
+.footer-logo { 
+  width:100px !important; height:auto !important;
+  object-fit:contain !important;
+}
+/* Preloader logo */
+#preloader-logo { 
+  width:clamp(140px,18vw,200px) !important; 
+  height:auto !important;
+}

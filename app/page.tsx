@@ -1,7 +1,6 @@
 import Image from "next/image";
 import MenaceClient from "@/components/MenaceClient";
 
-// SSR: All data defined server-side
 const BURGERS = [
   { name: "MENACE CHEESE",     single: "14.00", menu: "19.90", img: "/images/burger-menace-cheese.jpg" },
   { name: "MENACE CHEESE TS",  single: "15.00", menu: "20.90", img: "/images/burger-menace-cheese-ts.jpg" },
@@ -24,12 +23,12 @@ const IG_IMAGES = [
 export default function Home() {
   return (
     <>
-      {/* GRAIN */}
       <div id="grain" />
 
       {/* PRELOADER */}
       <div id="preloader">
-        <Image src="/images/logo.png" alt="Menace Burger" id="preloader-logo" width={200} height={200} priority />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/logo.png" alt="Menace Burger" id="preloader-logo" width={200} height={200} />
         <div id="preloader-text">LOADING THE EXPERIENCE</div>
       </div>
 
@@ -62,14 +61,12 @@ export default function Home() {
         <div className="hero-cross" />
         <div className="hero-bg-text" id="hero-bg">MENACE</div>
         <div className="hero-title" id="hero-title">MENACE</div>
-        <Image
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           className="hero-burger"
           id="hero-burger"
           src="/images/hero-burger.png"
           alt="Menace Smashburger"
-          width={900}
-          height={900}
-          priority
         />
         <div className="hero-sub">[ SCROLL DOWN ↓ ]</div>
       </section>
@@ -88,7 +85,8 @@ export default function Home() {
             {BURGERS.map((b) => (
               <div key={b.name} className="burger-card reveal">
                 <div className="burger-card-img">
-                  <Image src={b.img} alt={b.name} width={600} height={600} loading="lazy" />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={b.img} alt={b.name} loading="lazy" />
                 </div>
                 <div className="card-body">
                   <div className="card-name">{b.name}</div>
@@ -111,7 +109,8 @@ export default function Home() {
       {/* MENU MODAL */}
       <div id="menu-modal">
         <button id="menu-modal-close">✕</button>
-        <Image src="/images/menu-full.jpg" alt="Menace Burger Full Menu" width={1400} height={781} />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/menu-full.jpg" alt="Menace Burger Full Menu" loading="lazy" />
       </div>
 
       {/* ABOUT */}
@@ -127,7 +126,8 @@ export default function Home() {
           </p>
         </div>
         <div className="about-img-wrap reveal-right">
-          <Image src="/images/crew.jpg" alt="Dennis und Fabian – Gründer Menace Burger" width={900} height={900} loading="lazy" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/crew.jpg" alt="Dennis und Fabian – Gründer Menace Burger" loading="lazy" />
         </div>
       </section>
 
@@ -138,7 +138,8 @@ export default function Home() {
         <div className="cctv-grid">
           {IG_IMAGES.map((item, i) => (
             <div key={i} className="cctv-cell reveal">
-              <Image src={item.src} alt={item.alt} width={600} height={600} loading="lazy" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={item.src} alt={item.alt} loading="lazy" />
               <div className="cctv-ov">
                 <div className="rec-dot">REC</div>
                 <div className="cam-id">CAM-0{i + 1} // MENACE</div>
@@ -173,9 +174,12 @@ export default function Home() {
         </div>
         <div className="location-visual">
           <div className="location-imgs reveal-right">
-            <Image src="/images/location-1.jpg" alt="Menace Burger Aussen"  width={800} height={600} loading="lazy" />
-            <Image src="/images/location-2.jpg" alt="Menace Burger Innen"   width={800} height={600} loading="lazy" />
-            <Image src="/images/location-3.jpg" alt="Menace Burger Neon"    width={800} height={600} loading="lazy" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/location-1.jpg" alt="Menace Burger Aussen" loading="lazy" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/location-2.jpg" alt="Menace Burger Innen" loading="lazy" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/location-3.jpg" alt="Menace Burger Neon" loading="lazy" />
           </div>
           <div className="map-wrap">
             <div className="map-label">[ GPS: 47.4082° N, 8.4031° E ]</div>
@@ -190,7 +194,8 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer>
-        <Image className="footer-logo" src="/images/logo.png" alt="Menace Burger Logo" width={200} height={200} />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img className="footer-logo" src="/images/logo.png" alt="Menace Burger Logo" />
         <div className="social-icons">
           <a href="https://www.instagram.com/menaceburger/" target="_blank" rel="noopener noreferrer" title="Instagram">IG</a>
           <a href="https://www.tiktok.com/@menaceburger"    target="_blank" rel="noopener noreferrer" title="TikTok">TK</a>
@@ -205,7 +210,6 @@ export default function Home() {
         <div className="footer-copy">© 2025 MENACE BURGER – DIETIKON, ZÜRICH</div>
       </footer>
 
-      {/* Client-side interactivity */}
       <MenaceClient />
     </>
   );
